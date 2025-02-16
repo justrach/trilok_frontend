@@ -2,8 +2,14 @@ import { LibraryCard } from "@/components/LibraryCard";
 import { Inter, Playfair_Display, DM_Sans } from 'next/font/google'
 
 // Initialize fonts at module scope
-const playfair = Playfair_Display({ subsets: ['latin'] })
-const dmSans = DM_Sans({ subsets: ['latin'] })
+const playfair = Playfair_Display({ 
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800']
+})
+const dmSans = DM_Sans({ 
+  subsets: ['latin'],
+  weight: ['400', '500', '700']
+})
 const inter = Inter({ subsets: ['latin'] })
 
 const libraries = [
@@ -81,46 +87,82 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#FFF5F3] via-white to-[#FFF5F3] dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950">
       <div className="container mx-auto px-6 py-24 max-w-7xl">
-        <header className="text-center mb-24">
+        <header className="text-center mb-32">
+          <div className="mb-4">
+            <span className={`
+              text-sm tracking-widest uppercase text-[#FF6F61]/70
+              ${inter.className} font-medium
+            `}>
+              Open Source Libraries
+            </span>
+          </div>
           <h1 className={`
-            text-7xl font-bold mb-6 
-            bg-gradient-to-r from-[#FF6F61] via-[#FF8B7E] to-[#FF6F61] 
-            inline-block text-transparent bg-clip-text 
-            tracking-tight ${playfair.className}
+            text-8xl font-extrabold mb-8
+            bg-gradient-to-r from-[#FF6F61] via-[#FF8B7E] to-[#FF6F61]
+            inline-block text-transparent bg-clip-text
+            tracking-tight leading-tight ${playfair.className}
           `}>
-            trilok.ai
+            trilok<span className="font-light">.ai</span>
           </h1>
-          <p className={`
-            text-[#2A2A2A] dark:text-zinc-400 
-            max-w-2xl mx-auto text-lg 
-            font-light leading-relaxed ${dmSans.className}
-          `}>
-            A collection of high-performance open-source libraries,
-            <span className="block mt-2 italic">bridging ancient wisdom with modern engineering.</span>
-          </p>
+          <div className="max-w-3xl mx-auto">
+            <p className={`
+              text-[#2A2A2A] dark:text-zinc-400
+              text-xl leading-relaxed ${dmSans.className}
+              mb-6
+            `}>
+              A suite of high-performance libraries crafted with precision,
+              <span className="block">bridging ancient wisdom with modern engineering.</span>
+            </p>
+            <p className={`
+              text-[#2A2A2A]/60 dark:text-zinc-400/60
+              text-base ${dmSans.className}
+            `}>
+              Powered by Rust & WebAssembly • Apache 2.0 Licensed • Production Ready
+            </p>
+          </div>
         </header>
 
-        <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
           {libraries.map((lib) => (
             <LibraryCard key={lib.name} library={lib} />
           ))}
         </main>
 
-        <footer className="mt-24 text-center space-y-4">
-          <div className="flex justify-center gap-4">
-            {libraries.map((lib) => (
-              <div
-                key={lib.name}
-                className={`w-2 h-2 rounded-full ${lib.color} ${!lib.enabled && 'opacity-50'}`}
-              />
-            ))}
+        <footer className="text-center space-y-8">
+          <div className="flex flex-col items-center gap-6">
+            <div className="flex justify-center gap-4">
+              {libraries.map((lib) => (
+                <div
+                  key={lib.name}
+                  className={`w-2 h-2 rounded-full ${lib.color} ${!lib.enabled && 'opacity-50'}`}
+                />
+              ))}
+            </div>
+            <div className="space-y-3">
+              <p className={`
+                text-sm text-[#2A2A2A] dark:text-zinc-400
+                tracking-wide uppercase ${inter.className}
+              `}>
+                Built with precision. Powered by innovation.
+              </p>
+              <p className={`
+                text-xs text-[#2A2A2A]/60 dark:text-zinc-400/60
+                ${dmSans.className}
+              `}>
+                © 2024 trilok.ai • All rights reserved
+              </p>
+            </div>
           </div>
-          <p className={`
-            text-sm text-[#2A2A2A] dark:text-zinc-400
-            tracking-wide uppercase ${inter.className}
+          
+          <div className={`
+            flex justify-center gap-8 text-sm text-[#2A2A2A]/60 
+            dark:text-zinc-400/60 ${inter.className}
           `}>
-            Built with precision. Powered by innovation.
-          </p>
+            <a href="#" className="hover:text-[#FF6F61] transition-colors">Documentation</a>
+            <a href="#" className="hover:text-[#FF6F61] transition-colors">GitHub</a>
+            <a href="#" className="hover:text-[#FF6F61] transition-colors">Community</a>
+            <a href="#" className="hover:text-[#FF6F61] transition-colors">Blog</a>
+          </div>
         </footer>
       </div>
     </div>
