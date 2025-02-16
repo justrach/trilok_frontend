@@ -14,7 +14,7 @@ const eslintConfig = [
   {
     rules: {
       "@typescript-eslint/no-unused-vars": ["error", {
-        "varsIgnorePattern": "^(inter|playfair|dmSans)$"
+        "varsIgnorePattern": "^(inter|playfair|dmSans|Playfair_Display|ImageResponse)$"
       }]
     }
   }

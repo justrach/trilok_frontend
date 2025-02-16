@@ -18,6 +18,7 @@ const playfair = Playfair_Display({ subsets: ['latin'] })
 const dmSans = DM_Sans({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://trilok.ai'),
   title: "trilok.ai - High Performance Open Source Libraries",
   description: "A suite of high-performance libraries crafted with precision, bridging ancient wisdom with modern engineering.",
   openGraph: {
@@ -27,12 +28,19 @@ export const metadata: Metadata = {
     siteName: 'trilok.ai',
     locale: 'en_US',
     type: 'website',
+    images: [{
+      url: '/api/og',
+      width: 1200,
+      height: 630,
+      alt: 'trilok.ai - High Performance Open Source Libraries',
+    }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'trilok.ai - High Performance Open Source Libraries',
     description: 'A suite of high-performance libraries crafted with precision, bridging ancient wisdom with modern engineering.',
-    creator: '@yourtwitterhandle',
+    creator: '@rachpradhan',
+    images: ['/api/og'],
   },
 };
 

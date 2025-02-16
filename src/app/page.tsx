@@ -1,5 +1,6 @@
 import { LibraryCard } from "@/components/LibraryCard";
 import { Inter, Playfair_Display, DM_Sans } from 'next/font/google'
+import { Metadata } from 'next'
 
 // Initialize fonts at module scope
 const playfair = Playfair_Display({ 
@@ -168,3 +169,17 @@ export default function Home() {
     </div>
   );
 }
+
+export const metadata: Metadata = {
+  openGraph: {
+    images: [{
+      url: '/api/og',
+      width: 1200,
+      height: 630,
+      alt: 'trilok.ai - High Performance Open Source Libraries',
+    }],
+  },
+  twitter: {
+    images: ['/api/og'],
+  },
+};
